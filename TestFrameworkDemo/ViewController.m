@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import <YohunlUtilsLib/YohunlUtilsLib.h>
 @interface ViewController ()
 
 @end
@@ -16,7 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    YONetwork *net = [YONetwork new];
+    [net getGithubReposForUser:@"yohunl" withSuccess:^(id responseObject) {
+        NSLog(@"getGithubReposForUser response = %@",responseObject);
+    } failure:^(NSError *error) {
+        NSLog(@"getGithubReposForUser error = %@",error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

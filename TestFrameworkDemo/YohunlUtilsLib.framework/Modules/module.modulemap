@@ -1,0 +1,6 @@
+framework module YohunlUtilsLib {
+  umbrella header "YohunlUtilsLib.h"
+
+  export *
+  module * { export * }
+}
